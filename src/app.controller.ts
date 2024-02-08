@@ -1,12 +1,36 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
-import { TodoService } from './todo/todo.service';
+import { Controller, Get, Render } from '@nestjs/common';
+
+// @Controller()
+// export class AppController {
+//   @Get()
+//   getHello(): string {
+//     return '<b>{{firstname}} {{lastname}}</b>';
+//   }
+// }
+
 @Controller()
 export class AppController {
-  // constructor(private readonly appService: AppService) {}
+  @Get('/')
+  @Render('index')
+  index() {
+    return {
+      title: 'Home Page - Online Store',
+    };
+  }
 
-  @Get()
-  getHello(): string {
-    return '<b>Hello World</b>';
-    // return this.appService.getHello();
+  // Rendering the about page
+  @Get('/about')
+  @Render('about')
+  about() {
+    let viewData = [];
+    viewData['description']= "This is the about page ...";
+    viewData['author'] = "Developed by: Moses";
+    let data1 = 'About us - Online Store';
+    
+    return {
+      title: data1;
+      subtitle:"About us";
+      viewData: viewData
+    }
   }
 }
