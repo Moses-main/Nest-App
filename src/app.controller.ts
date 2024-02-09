@@ -1,20 +1,14 @@
 import { Controller, Get, Render } from '@nestjs/common';
 
-// @Controller()
-// export class AppController {
-//   @Get()
-//   getHello(): string {
-//     return '<b>{{firstname}} {{lastname}}</b>';
-//   }
-// }
-
 @Controller()
 export class AppController {
   @Get('/')
   @Render('index')
   index() {
+    let viewData = [];
+    viewData['title'] = 'Home Page - Online Store';
     return {
-      title: 'Home Page - Online Store',
+      viewData: viewData,
     };
   }
 
@@ -22,15 +16,15 @@ export class AppController {
   @Get('/about')
   @Render('about')
   about() {
-    let viewData = [];
-    viewData['description']= "This is the about page ...";
-    viewData['author'] = "Developed by: Moses";
-    let data1 = 'About us - Online Store';
-    
+    const viewData = [];
+    viewData['title'] = 'About us - Online Store ...';
+    viewData['description'] = 'This is the about page ...';
+    viewData['author'] = 'Developed by: Moses';
+    viewData['subtitle'] = 'About us';
+    // let title = 'About us - Online Store';
+
     return {
-      title: data1;
-      subtitle:"About us";
-      viewData: viewData
-    }
+      viewData: viewData,
+    };
   }
 }

@@ -20,14 +20,14 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ms-auto">
                     <a class="nav-link active" href="/">Home</a>
-                    <a class="nav-link active" href="about">About</a>
+                    <a class="nav-link active" href="/about">About</a>
                 </div>
             </div>
         </div>
     </nav>
 <header class="masthead bg-primary text-white text-center py-4">
     <div class="container d-flex align-items-center flex-column">
-        <h2>{{#if subtitle}}{{ subtitle }}{{else}}A Nest Online Store{{/if}}</h2>
+        <h2>{{#if viewData.title}}{{ viewData.title }}{{else}}A Nest Online Store{{/if}}</h2>
     </div>
 </header>
 
