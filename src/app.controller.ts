@@ -1,5 +1,4 @@
 import { Controller, Get, Render, Param } from '@nestjs/common';
-
 @Controller()
 export class AppController {
   @Get('/')

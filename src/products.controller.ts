@@ -1,6 +1,6 @@
 import { Controller, Get, Render, Param } from '@nestjs/common';
 
-@Controller('products')
+@Controller('/products')
 export class ProductsController {
   static products = [
     {
@@ -32,6 +32,7 @@ export class ProductsController {
       price: '100',
     },
   ];
+
   @Get('/')
   @Render('products/index')
   index() {
@@ -39,6 +40,9 @@ export class ProductsController {
     viewData['title'] = 'Products - Online Store';
     viewData['subtitle'] = 'List of Products';
     viewData['products'] = ProductsController.products;
+    return {
+      viewData: viewData,
+    };
   }
 
   @Get('/:id')
